@@ -901,7 +901,7 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@ember-data/adapter@3.25.0":
+"@ember-data/adapter@3.25.0", "@ember-data/adapter@^3.25.0":
   version "3.25.0"
   resolved "https://registry.yarnpkg.com/@ember-data/adapter/-/adapter-3.25.0.tgz#1138098a2d6633be0bc96181eb796465d7290860"
   integrity sha512-CJEQmETO33lOrIazlSdFz0A42DCP66VOx4GhgP5erXBQqywn9O4TcR/ZE0oLXasjqHmcT6/4r+aZY8gnjrovjQ==
