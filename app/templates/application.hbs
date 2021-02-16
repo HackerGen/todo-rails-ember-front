@@ -1,3 +1,15 @@
-{{page-title "Front"}}
-<h1>Todo app</h1>
-{{outlet}}
+{{page-title "Todo app"}}
+<BsNavbar
+  @type="primary"
+  @backgroundColor="primary"
+  @collapsed={{true}}
+  class="text-center justify-content-center mb-5"
+>
+  <div class="navbar-header">
+    <LinkTo @route="index" class="navbar-brand text-white">TODO APP</LinkTo>
+  </div>
+</BsNavbar>
+
+<div class="container">
+  {{outlet}}
+</div>

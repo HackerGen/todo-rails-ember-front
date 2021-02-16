@@ -1,15 +1,29 @@
-<form onSubmit={{fn this.submit @model}}>
-  <input placeholder='Add todo' type='text' value={{this.text.todo}} onChange={{fn this.onChange}}/>
-  <button type='submit'>Add</button>
+<form onSubmit={{fn this.submit @model}} class="row justify-content-center align-items-center">
+  <div class="col-auto">
+    <input placeholder="Add todo" type="text" class="form-control"
+           value={{this.text.todo}} onChange={{fn this.onChange}}
+    />
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">Add</button>
+  </div>
 </form>
 
-<ul>
+<div class="list-wrapper">
+  <ul class="list-group d-flex flex-column-reverse todo-list">
   {{#each @model as |item|}}
     {{#if item.id}}
-      <li>
-        {{item.todo}}
-        <button onclick={{fn this.delete @model item}} type="button">x</button>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+            {{item.todo}}
+            <i class="input-helper"></i>
+          </label>
+        </div>
+        <button onclick={{fn this.delete @model item}} type="button" class="btn btn-danger">x</button>
       </li>
     {{/if}}
   {{/each}}
 </ul>
+</div>
