@@ -1,10 +1,18 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { task } from 'ember-concurrency-decorators';
+import { inject as service } from '@ember/service';
 
 export default class TodoAppComponent extends Component {
-  @tracked
-  text = '';
+  @service store;
+  @tracked text = '';
+  @tracked items = [];
+
+  constructor() {
+    super(...arguments);
+    this.loadItems.perform();
+  }
 
   @action
   submit(model, event) {
@@ -27,5 +35,10 @@ export default class TodoAppComponent extends Component {
   @action
   onChange(e) {
     this.text = e.target.value;
+  }
+
+  @task({ restartable: true })
+  *loadItems() {
+    this.items = yield this.store.query('todo_item', {});
   }
 }
