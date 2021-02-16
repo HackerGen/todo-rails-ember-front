@@ -1,0 +1,10 @@
+<form onSubmit={{fn this.submit @model}}>
+  <input placeholder='Add todo' type='text' value={{this.text.todo}} onChange={{fn this.onChange}}/>
+  <button type='submit'>Add</button>
+</form>
+
+<ul>
+  {{#each @model as |item|}}
+    <li>{{item.todo}}</li>
+  {{/each}}
+</ul>
