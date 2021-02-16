@@ -16,7 +16,12 @@ export default class TodoAppComponent extends Component {
     };
 
     model.pushObject(newTodo);
-    console.log('added', model);
+  }
+
+  @action
+  delete(model, item) {
+    const index = model.findIndex((todo) => todo.id === item.id);
+    model.splice(index, 1);
   }
 
   @action

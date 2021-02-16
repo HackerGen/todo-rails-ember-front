@@ -5,6 +5,11 @@
 
 <ul>
   {{#each @model as |item|}}
-    <li>{{item.todo}}</li>
+    {{#if item.id}}
+      <li>
+        {{item.todo}}
+        <button onclick={{fn this.delete @model item}} type="button">x</button>
+      </li>
+    {{/if}}
   {{/each}}
 </ul>
